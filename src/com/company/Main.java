@@ -177,7 +177,11 @@ public class Main {
         byte[] byteArrray = inputString.getBytes();
         int num = ByteBuffer.wrap(byteArrray).getInt();
 
-        int comparisonResult = Varray[Permute_array[text1]] - num%3;
+        int comparisonResult = (Varray[Permute_array[text1]] - num%3)%3;
+        if(comparisonResult<0){
+            comparisonResult = comparisonResult + 3;
+        }
+
         System.out.println(comparisonResult);
     }
 
@@ -209,13 +213,13 @@ public class Main {
     public static int Compare(int txt1, int txt2){
     int comparison = 0;
         if(txt1 < txt2){
-            comparison = -1;
-        }
-        if(txt1 == txt2){
             comparison = 0;
         }
-        if(txt1 > txt2){
+        if(txt1 == txt2){
             comparison = 1;
+        }
+        if(txt1 > txt2){
+            comparison = 2;
         }
         return comparison;
     }
